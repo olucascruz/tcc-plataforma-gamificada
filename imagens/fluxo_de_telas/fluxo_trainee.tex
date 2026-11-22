@@ -1,0 +1,37 @@
+% Figura: fluxo de telas do perfil Trainee (segunda versão).
+% Incluída com \input{imagens/fluxo_de_telas/fluxo_trainee} dentro de um ambiente figure.
+% Requer: tikz (bibliotecas positioning, arrows.meta e shapes.geometric).
+\begin{tikzpicture}[
+    x=1cm, y=1cm, font=\small, >={Stealth[length=2.2mm]},
+    tela/.style={draw, rounded corners=4pt, align=center, minimum width=2.75cm, minimum height=1.05cm, inner sep=3pt},
+    decisao/.style={draw, diamond, aspect=1.5, align=center, inner sep=1pt, font=\footnotesize},
+    inicio/.style={draw, circle, minimum size=4.5mm, inner sep=0pt},
+    fim/.style={draw, circle, fill=black, minimum size=4.5mm, inner sep=0pt},
+    rot/.style={font=\footnotesize, fill=white, inner sep=1.5pt},
+    seta/.style={->, thick}
+  ]
+  \node[inicio] (ini) at (-1.55,0) {};
+  \node[tela] (entrar) at (0.75,0) {Entrar\\(SSO Microsoft)};
+  \node[tela] (turma) at (4.0,0) {Entrar na turma\\{\footnotesize código da turma}};
+  \node[tela] (lista) at (7.25,0) {Avaliações\\{\footnotesize ranking e conquistas}};
+  \node[tela] (regras) at (11.1,0) {Regras da\\avaliação};
+  \node[tela] (responder) at (11.1,-2.6) {Responder e enviar\\{\footnotesize tempo por questão}};
+  \node[decisao] (lib) at (7.25,-2.6) {Resultado\\liberado?};
+  \node[tela] (resultado) at (7.25,-5.1) {Resultado\\{\footnotesize nota, aprovação}\\{\footnotesize e revisão}};
+  \node[tela] (enviada) at (4.0,-2.6) {Resposta enviada\\{\footnotesize resultado depois}};
+  \node[tela] (volta) at (4.0,-5.1) {Avaliações};
+  \node[fim] (fimn) at (0.75,-5.1) {};
+
+  \draw[seta] (ini) -- (entrar);
+  \draw[seta] (entrar) -- (turma);
+  \draw[seta] (turma) -- (lista);
+  \draw[seta] (lista) -- node[rot, above=2pt] {Jogar} (regras);
+  \draw[seta] (regras) -- node[rot, right=1pt] {Começar} (responder);
+  \draw[seta] (responder) -- (lib);
+  \draw[seta] (lib) -- node[rot, right=1pt] {sim} (resultado);
+  \draw[seta] (lib) -- node[rot, above=1pt] {não} (enviada);
+  \draw[seta] (enviada) -- (volta);
+  \draw[seta] (resultado) -- (volta);
+  \draw[seta] (volta) -- (fimn);
+  \draw[seta, dashed] (responder.east) -- ++(0.55,0) |- node[rot, pos=0.75, above=1pt] {sair no meio: nada é enviado} ([yshift=9mm]lista.north) -- (lista.north);
+\end{tikzpicture}

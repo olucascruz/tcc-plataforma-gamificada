@@ -1,0 +1,37 @@
+% Figura: fluxo de telas do perfil Instrutor (segunda versão).
+% Incluída com \input{imagens/fluxo_de_telas/fluxo_instrutor} dentro de um ambiente figure.
+% Requer: tikz (bibliotecas positioning, arrows.meta e shapes.geometric).
+\begin{tikzpicture}[
+    x=1cm, y=1cm, font=\small, >={Stealth[length=2.2mm]},
+    tela/.style={draw, rounded corners=4pt, align=center, minimum width=2.9cm, minimum height=1.05cm, inner sep=3pt},
+    decisao/.style={draw, diamond, aspect=1.5, align=center, inner sep=1pt, font=\footnotesize},
+    inicio/.style={draw, circle, minimum size=4.5mm, inner sep=0pt},
+    fim/.style={draw, circle, fill=black, minimum size=4.5mm, inner sep=0pt},
+    rot/.style={font=\footnotesize, fill=white, inner sep=1.5pt},
+    seta/.style={->, thick}
+  ]
+  \node[inicio] (ini) at (-1.6,0) {};
+  \node[tela] (entrar) at (0.9,0) {Entrar\\(SSO Microsoft)};
+  \node[decisao] (tipo) at (4.4,0) {Tipo de\\conta?};
+  \node[tela] (lista) at (8.2,0) {Avaliações\\{\footnotesize situação, andamento}\\{\footnotesize e filtros}};
+  \node[tela] (criar) at (8.2,-2.5) {Criar avaliação\\{\footnotesize banco (documentos e}\\{\footnotesize quantidades) ou manual}};
+  \node[tela] (revisar) at (8.2,-5.0) {Revisar no editor\\{\footnotesize editar, trocar ou}\\{\footnotesize excluir questões}};
+  \node[tela, minimum width=2.2cm] (salvar) at (8.2,-7.2) {Salvar};
+  \node[tela] (config) at (12.3,-1.25) {Configurar\\{\footnotesize prazo, turmas, média}\\{\footnotesize e resultado}};
+  \node[tela] (gestao) at (12.3,-3.75) {Gestão\\{\footnotesize painéis de turma}\\{\footnotesize e de avaliação}};
+  \node[fim] (fimn) at (12.3,-5.9) {};
+  \node[tela, dashed] (trainee) at (4.4,-2.5) {Fluxo do Trainee\\{\footnotesize (figura seguinte)}};
+
+  \draw[seta] (ini) -- (entrar);
+  \draw[seta] (entrar) -- (tipo);
+  \draw[seta] (tipo) -- node[rot, above=1pt] {Instrutor} (lista);
+  \draw[seta] (tipo) -- node[rot, right=1pt] {Trainee} (trainee);
+  \draw[seta] (lista) -- (criar);
+  \draw[seta] (criar) -- (revisar);
+  \draw[seta] (revisar) -- (salvar);
+  \draw[seta] (salvar.west) -- (6.3,-7.2) |- ([yshift=-3.5mm]lista.west);
+  \node[rot, left=1pt] at (6.3,-5.0) {volta à lista};
+  \draw[seta] (lista.east) -- ++(0.55,0) |- (config.west);
+  \draw[seta] (lista.east) -- ++(0.55,0) |- (gestao.west);
+  \draw[seta] (gestao) -- (fimn);
+\end{tikzpicture}
