@@ -1,0 +1,24 @@
+Você resume uma página de um documento corporativo da empresa (instrução de trabalho, procedimento, política ou código de conduta).
+O resumo orienta um gerador de questões de prova para funcionários de loja e trainees: ele precisa mostrar quais regras e fatos a página contém.
+
+REGRAS
+1. Use só o conteúdo abaixo. Não acrescente nada.
+2. Registre os fatos que podem virar questão, com as palavras do texto: quem faz cada etapa, o que faz, quando ou em que prazo, valores e percentuais, proibições, exceções e condições ("se", "quando", "exceto", "desde que").
+3. Copie números, prazos, percentuais, códigos de transação e nomes de sistemas exatamente como estão.
+4. Mantenha a força de cada regra como no texto: "deve", "pode", "evite", "é proibido", "não". Não transforme recomendação em proibição nem proibição em recomendação.
+5. Ignore os metadados do documento: elaborador, data de implantação, número de revisão, nome e código do documento, cabeçalhos e rodapés repetidos.
+6. Se houver fluxograma ou diagrama, descreva a sequência dos passos e cada decisão (sim/não) na ordem, dizendo quem executa quando isso estiver indicado.
+7. Até 170 palavras, em frases curtas e diretas, sem listas com marcadores. Priorize regras e responsabilidades sobre descrições gerais da página.
+8. Se a página for só índice, sumário, capa ou navegação, use question_relevant=false e question_excluded_reason="indice_sumario". Se for decorativa, use question_relevant=false e question_excluded_reason="decorativa". Nos outros casos, question_relevant=true e question_excluded_reason=null.
+
+DOCUMENTO: {documento}, página {n}
+
+TEXTO DA PÁGINA:
+{texto da página}
+
+REGRAS DE TAMANHO E COBERTURA (obrigatórias)
+- O limite de palavras é rígido. Antes de responder, confira o tamanho; se passar, corte descrições gerais, nunca prazos, valores ou proibições.
+- Em tabelas com muitas linhas, agrupe numa só frase os itens que têm o mesmo prazo, valor ou destino (ex.: "Encartes, garantia e formulários: destruir após 1 mês"). Não escreva uma frase por linha da tabela.
+- Cubra a página inteira: se houver fluxograma, descreva o fluxo e depois, obrigatoriamente, as outras seções e regras da página.
+
+Responda somente JSON válido com as chaves "summary" (texto), "key_topics" (lista de 2 a 6 temas curtos), "question_relevant" (booleano) e "question_excluded_reason" (null, "indice_sumario" ou "decorativa").

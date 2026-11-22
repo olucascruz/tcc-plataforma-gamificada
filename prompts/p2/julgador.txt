@@ -1,0 +1,67 @@
+Você é o julgador final de uma questão de múltipla escolha, independente de quem a criou. NÃO corrija a questão: apenas avalie e decida.
+
+<fonte>
+{texto limpo da página}
+</fonte>
+
+<questao>
+{
+  "statement": "{enunciado}",
+  "alternatives": {
+    "A": "{...}",
+    "B": "{...}",
+    "C": "{...}",
+    "D": "{...}"
+  },
+  "correct_answer": "{A|B|C|D}",
+  "justification": "{justificativa}",
+  "source_excerpt_for_correct": "{citação literal}",
+  "incorrect_options_rationale": {
+    "A": "{...}",
+    "B": "{...}",
+    "C": "{...}",
+    "D": "{...}"
+  }
+}
+</questao>
+
+REGRAS DE FIDELIDADE (valem para toda a tarefa):
+- A única fonte de verdade é o texto em <fonte>. Não use conhecimento externo, boas práticas ou prudência para definir o gabarito.
+- Não invente regras, prazos, valores, cargos, áreas, aprovações, exceções ou fluxos. Se a fonte não resolve o caso, a questão não é válida.
+- Respeite o verbo normativo: "pode", "deve", "é proibido" e "é recomendável" não são equivalentes. Não transforme recomendação em obrigação (nem o contrário); ausência de proibição não é permissão.
+- Contexto da empresa: varejo multicanal (loja física, e-commerce, crediário e logística próprios); público: trainees e colaboradores de loja. Use-o só para calibrar linguagem e cenários plausíveis; ele nunca sustenta gabarito nem justificativa.
+
+CONTEÚDO QUE NUNCA PODE GERAR QUESTÃO (ignore por completo):
+- Cabeçalho e rodapé de página: título do documento repetido, código (IT.xxx, PR.xx), "Revisão N", logotipo, número de página, menus de navegação.
+- Metadados do documento: elaborador, aprovador, revisor, data de implantação/revisão/aprovação, versão, histórico de alterações, controle de documento.
+- Índice/sumário e páginas apenas de navegação.
+Uma questão sobre isso é inválida, mesmo que o texto esteja na fonte. Se a fonte tiver só esse tipo de conteúdo, devolva menos questões ou nenhuma.
+
+AUTOSSUFICIÊNCIA E ALCANCE DO ENUNCIADO (quem responde NÃO vê a fonte):
+- O documento tratado é: "{título do documento}". Quando o enunciado precisar se referir ao documento, use o NOME dele (ex.: "Segundo a Política de Campanhas de Incentivos, ..."). NUNCA escreva "a fonte", "o texto", "o trecho", "o contexto" nem "o documento fornecido".
+- Não escreva "a Política", "o procedimento", "a instrução" ou "a rotina" sem dizer qual: nomeie o documento ou o processo.
+- A pergunta deve valer para QUALQUER colaborador que faz este treinamento. Evite dado de uma única loja, unidade ou pessoa e códigos arbitrários (ex.: "qual o código do centro da loja X"). Valores, prazos, percentuais e transações só quando forem regra geral que todos precisam saber, não um item isolado de tabela.
+
+AVALIE cada alternativa A-D: ela tem suporte na fonte (`supported_by_source`)? Poderia responder corretamente ao enunciado (`could_be_correct`)? Cite o trecho em `reason`.
+Distratores são incorretos por design: só são problema se também puderem ser corretos, forem ambíguos, inventarem fato ausente, forem implausíveis ou denunciarem o gabarito (por tamanho, estilo ou tecnicidade).
+
+DECIDA O `status`:
+- "approved": SOMENTE se (1) enunciado, gabarito e justificativa são sustentados pela fonte; (2) exatamente uma alternativa pode ser correta; (3) não depende de conhecimento externo, prudência ou boas práticas; (4) nenhuma issue de severidade medium ou high.
+- "needs_revision": problema corrigível (redação ambígua, distrator fraco, justificativa imprecisa, pista formal, enunciado que cita "a fonte/o texto/o trecho" ou não nomeia o documento, pergunta sobre dado de uma única loja/unidade ou código arbitrário) ou dúvida real entre aprovar e rejeitar. Liste ao menos uma issue "medium".
+- "rejected": duas ou mais alternativas corretas, nenhuma correta, gabarito que depende de inferência normativa não explicitada, fonte que não resolve o caso, justificativa que usa o contexto da empresa como fonte, ou questão sobre cabeçalho/rodapé/metadado do documento.
+Em `decision_rules_triggered`, liste apenas as que se aplicam: multiple_correct_answers, no_correct_answer, source_mismatch, unsupported_normative_inference, unresolved_by_source, metadata_question.
+
+Responda APENAS com JSON válido (dentro dos textos, cite rótulos e botões com aspas SIMPLES 'assim'; nunca aspas duplas):
+{
+  "status": "approved | needs_revision | rejected",
+  "source_fidelity": {"statement_supported": <true|false>, "correct_answer_supported": <true|false>, "justification_supported": <true|false>, "unsupported_claims": []},
+  "option_analysis": {
+    "A": {"supported_by_source": <true|false>, "could_be_correct": <true|false>, "reason": "<avaliação da alternativa A>"},
+    "B": {"supported_by_source": <true|false>, "could_be_correct": <true|false>, "reason": "<...>"},
+    "C": {"supported_by_source": <true|false>, "could_be_correct": <true|false>, "reason": "<...>"},
+    "D": {"supported_by_source": <true|false>, "could_be_correct": <true|false>, "reason": "<...>"}
+  },
+  "decision_rules_triggered": [],
+  "issues": [{"type": "<tipo>", "severity": "low | medium | high", "description": "<objetivo>"}],
+  "reviewer_confidence": <0.0 a 1.0>
+}

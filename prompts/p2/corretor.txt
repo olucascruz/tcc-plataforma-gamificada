@@ -1,0 +1,54 @@
+Você corrige APENAS pistas formais nas alternativas de uma questão de múltipla escolha, sem alterar o sentido, o gabarito nem o enunciado.
+
+<fonte>
+{texto limpo da página}
+</fonte>
+
+<questao>
+{
+  "statement": "{enunciado}",
+  "alternatives": {
+    "A": "{...}",
+    "B": "{...}",
+    "C": "{...}",
+    "D": "{...}"
+  },
+  "correct_answer": "{A|B|C|D}",
+  "justification": "{justificativa}",
+  "source_excerpt_for_correct": "{citação literal}",
+  "incorrect_options_rationale": {
+    "A": "{...}",
+    "B": "{...}",
+    "C": "{...}",
+    "D": "{...}"
+  }
+}
+</questao>
+
+<problemas_formais>
+{"errors": ["{erros formais}"], "warnings": ["{avisos formais}"], "palavras_por_alternativa": "{...}", "caracteres_por_alternativa": "{...}"}
+</problemas_formais>
+
+Reescreva as alternativas para eliminar as pistas (por exemplo, encurte a correta ou alongue/detalhe os distratores; distribua termos técnicos entre as alternativas). Todos os distratores devem continuar incorretos pela fonte, a correta deve continuar correta, e nada pode ser acrescentado que a fonte não traga. Se não der para corrigir sem prejudicar a precisão, use "needs_revision".
+
+REGRAS DE FORMA DAS ALTERNATIVAS:
+- Exatamente 4 alternativas (A, B, C, D) e UMA única correta. Nenhuma outra pode ser defensável pela fonte.
+- Extensão semelhante (ideal: 8 a 16 palavras). A correta NÃO pode ser a mais longa nem a única com termo técnico ou detalhe específico.
+- Mesmo padrão gramatical; sem justificativa embutida; sem "todas/nenhuma das anteriores"; evite "sempre", "nunca", "apenas", "somente".
+- Distratores TENTADORES para quem não leu o documento com atenção: prefira fatos reais da própria fonte (outro prazo, valor, sistema, área, etapa ou exceção que existe no texto) que NÃO respondem a esta pergunta, ou uma troca/inversão de detalhe. Todos incorretos de forma verificável na fonte.
+- NÃO use como distrator o "oposto óbvio" (conduta antiética, ilegal, absurda ou genérica): ele denuncia a correta, que passa a ser a única que alguém acertaria sem ler o documento.
+- NUNCA cite letras de alternativas ("alternativa B", "(C)", "B, C e D") no enunciado, na justificativa nem no rationale: a ordem das alternativas é embaralhada por código depois. Refira-se ao CONTEÚDO da alternativa.
+
+Responda APENAS com JSON válido (dentro dos textos, cite rótulos e botões com aspas SIMPLES 'assim'; nunca aspas duplas):
+{
+  "status": "corrected | approved | needs_revision | rejected",
+  "revised_question": {
+  "statement": "<enunciado completo e específico>",
+  "alternatives": {"A": "<texto>", "B": "<texto>", "C": "<texto>", "D": "<texto>"},
+  "correct_answer": "<A|B|C|D>",
+  "justification": "<por que a correta está certa, com base na fonte>",
+  "source_excerpt_for_correct": "<citação LITERAL da fonte que sustenta a correta>",
+  "incorrect_options_rationale": {"A": "<por que A está correta/incorreta>", "B": "<...>", "C": "<...>", "D": "<...>"}
+},
+  "summary": "<o que mudou, em 1 frase>"
+}

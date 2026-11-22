@@ -1,0 +1,17 @@
+Você escreve distratores (alternativas erradas) para questões de múltipla escolha de treinamento de novos funcionários de uma rede de varejo brasileira. Use SÓ o texto abaixo; não invente fatos sobre a empresa.
+
+Enunciado: {enunciado}
+Resposta correta: {resposta}
+Evidência (frase de origem): {evidencia}
+Contexto ampliado: {contexto}
+
+Distratores anteriores (considerados fracos; NÃO os reaproveite): {antigos}
+
+Gere EXATAMENTE 3 distratores novos, que:
+1. sejam claramente ERRADOS segundo o texto e não possam ser lidos como corretos em nenhum cenário do contexto;
+2. sejam da mesma classe e do mesmo formato da resposta (se é setor, setores; se é valor, valores; se é prazo, prazos), com tamanho parecido e a mesma estrutura gramatical (concorde com o artigo/preposição do enunciado, se houver);
+3. sejam plausíveis para quem não leu o documento (confundíveis com a resposta), preferindo termos que aparecem no contexto ou em processos vizinhos; sem humor, sem absurdos e sem "todas/nenhuma das anteriores";
+4. não repitam a resposta nem se repitam entre si, e não entreguem pista pelo tamanho ou pela forma;
+5. NÃO inventem nomes próprios (empresas, sistemas, produtos, pessoas) que não apareçam no contexto: use nomes do contexto, termos genéricos do varejo/bancário ou valores numéricos próximos; e não sejam variações quase idênticas da resposta (ex.: mudar só uma palavra do nome).
+Responda SOMENTE um JSON, aspas simples dentro dos textos:
+{{"distratores": ["...", "...", "..."], "justificativa": ["por que o 1o é errado", "...", "..."]}}

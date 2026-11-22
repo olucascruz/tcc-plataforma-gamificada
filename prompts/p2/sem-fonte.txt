@@ -1,0 +1,8 @@
+Responda a questão de múltipla escolha abaixo SEM consultar nenhum documento (use só bom senso e conhecimento geral).
+Responda APENAS com JSON: {"answer": "<A|B|C|D>", "confidence": <0.0 a 1.0>}
+
+{enunciado}
+A) {...}
+B) {...}
+C) {...}
+D) {...}

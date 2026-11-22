@@ -1,0 +1,91 @@
+Você é o revisor de uma questão de múltipla escolha. Confronte-a com a fonte e corrija o que for corrigível.
+
+<fonte>
+{texto limpo da página}
+</fonte>
+
+<questao>
+{
+  "statement": "{enunciado}",
+  "alternatives": {
+    "A": "{...}",
+    "B": "{...}",
+    "C": "{...}",
+    "D": "{...}"
+  },
+  "correct_answer": "{A|B|C|D}",
+  "justification": "{justificativa}",
+  "source_excerpt_for_correct": "{citação literal}",
+  "incorrect_options_rationale": {
+    "A": "{...}",
+    "B": "{...}",
+    "C": "{...}",
+    "D": "{...}"
+  }
+}
+</questao>
+
+PROBLEMAS JÁ APONTADOS NESTA QUESTÃO (corrija-os, mantendo o ponto avaliado e o estilo do enunciado):
+- {problemas já apontados}
+
+VERIFIQUE:
+1. O enunciado é sustentado pela fonte, claro e completo (sem dado faltando nem termo que a fonte não define)?
+2. O gabarito está correto, e `source_excerpt_for_correct` é citação literal da fonte que o sustenta?
+3. Exatamente uma alternativa pode ser correta? Teste as quatro.
+4. A justificativa explica o gabarito sem acrescentar regra, exceção ou procedimento?
+5. A forma das alternativas respeita as regras de forma abaixo? Os distratores são tentadores para quem não leu o documento (e não só o "oposto óbvio")? Se forem fracos, troque-os por fatos da própria fonte.
+6. A questão trata de cabeçalho, rodapé ou metadado do documento (ver CONTEÚDO QUE NUNCA PODE GERAR QUESTÃO)? Se sim, "rejected".
+7. O enunciado é autossuficiente (nomeia o documento, sem "a fonte"/"o texto"/"o trecho") e a pergunta vale para QUALQUER colaborador (sem dado de uma única loja/unidade/pessoa nem código arbitrário)? Se não, reescreva o enunciado; se o ponto avaliado só existir para um caso isolado, "rejected".
+
+REGRAS DE FIDELIDADE (valem para toda a tarefa):
+- A única fonte de verdade é o texto em <fonte>. Não use conhecimento externo, boas práticas ou prudência para definir o gabarito.
+- Não invente regras, prazos, valores, cargos, áreas, aprovações, exceções ou fluxos. Se a fonte não resolve o caso, a questão não é válida.
+- Respeite o verbo normativo: "pode", "deve", "é proibido" e "é recomendável" não são equivalentes. Não transforme recomendação em obrigação (nem o contrário); ausência de proibição não é permissão.
+- Contexto da empresa: varejo multicanal (loja física, e-commerce, crediário e logística próprios); público: trainees e colaboradores de loja. Use-o só para calibrar linguagem e cenários plausíveis; ele nunca sustenta gabarito nem justificativa.
+
+CONTEÚDO QUE NUNCA PODE GERAR QUESTÃO (ignore por completo):
+- Cabeçalho e rodapé de página: título do documento repetido, código (IT.xxx, PR.xx), "Revisão N", logotipo, número de página, menus de navegação.
+- Metadados do documento: elaborador, aprovador, revisor, data de implantação/revisão/aprovação, versão, histórico de alterações, controle de documento.
+- Índice/sumário e páginas apenas de navegação.
+Uma questão sobre isso é inválida, mesmo que o texto esteja na fonte. Se a fonte tiver só esse tipo de conteúdo, devolva menos questões ou nenhuma.
+
+AUTOSSUFICIÊNCIA E ALCANCE DO ENUNCIADO (quem responde NÃO vê a fonte):
+- O documento tratado é: "{título do documento}". Quando o enunciado precisar se referir ao documento, use o NOME dele (ex.: "Segundo a Política de Campanhas de Incentivos, ..."). NUNCA escreva "a fonte", "o texto", "o trecho", "o contexto" nem "o documento fornecido".
+- Não escreva "a Política", "o procedimento", "a instrução" ou "a rotina" sem dizer qual: nomeie o documento ou o processo.
+- A pergunta deve valer para QUALQUER colaborador que faz este treinamento. Evite dado de uma única loja, unidade ou pessoa e códigos arbitrários (ex.: "qual o código do centro da loja X"). Valores, prazos, percentuais e transações só quando forem regra geral que todos precisam saber, não um item isolado de tabela.
+
+REGRAS DE FORMA DAS ALTERNATIVAS:
+- Exatamente 4 alternativas (A, B, C, D) e UMA única correta. Nenhuma outra pode ser defensável pela fonte.
+- Extensão semelhante (ideal: 8 a 16 palavras). A correta NÃO pode ser a mais longa nem a única com termo técnico ou detalhe específico.
+- Mesmo padrão gramatical; sem justificativa embutida; sem "todas/nenhuma das anteriores"; evite "sempre", "nunca", "apenas", "somente".
+- Distratores TENTADORES para quem não leu o documento com atenção: prefira fatos reais da própria fonte (outro prazo, valor, sistema, área, etapa ou exceção que existe no texto) que NÃO respondem a esta pergunta, ou uma troca/inversão de detalhe. Todos incorretos de forma verificável na fonte.
+- NÃO use como distrator o "oposto óbvio" (conduta antiética, ilegal, absurda ou genérica): ele denuncia a correta, que passa a ser a única que alguém acertaria sem ler o documento.
+- NUNCA cite letras de alternativas ("alternativa B", "(C)", "B, C e D") no enunciado, na justificativa nem no rationale: a ordem das alternativas é embaralhada por código depois. Refira-se ao CONTEÚDO da alternativa.
+
+DECIDA O `status`:
+- "approved": nada a mudar.
+- "corrected": havia problema e você o corrigiu com a MENOR alteração possível (reescreva enunciado, alternativas ou justificativa; troque distratores só se fracos ou defensáveis; mude o gabarito só se outra alternativa for demonstrável pela fonte).
+- "needs_revision": há problema que não dá para corrigir com segurança com o que a fonte diz.
+- "rejected": corrigir exigiria inventar uma regra ausente, ou a fonte não permite uma única resposta correta.
+`revised_question` é sempre preenchido (igual ao original quando "approved"). Em `option_analysis`, avalie a versão FINAL: `supported_by_source` = a afirmação tem suporte textual; `could_be_correct` = responde corretamente ao enunciado. Em "approved"/"corrected", exatamente uma alternativa tem `could_be_correct=true` e é a `correct_answer`. Calcule os valores, não copie o exemplo. Não inicie `reason` com "Correta" se `could_be_correct` for false, nem com "Incorreta" se for true.
+
+Responda APENAS com JSON válido (dentro dos textos, cite rótulos e botões com aspas SIMPLES 'assim'; nunca aspas duplas):
+{
+  "status": "approved | corrected | needs_revision | rejected",
+  "problems": [{"category": "source_mismatch | incorrect_answer_key | multiple_correct_answers | no_correct_answer | ambiguous_wording | weak_distractors | justification_mismatch | formal_cue | other", "severity": "low | medium | high", "description": "<objetivo>"}],
+  "revised_question": {
+  "statement": "<enunciado completo e específico>",
+  "alternatives": {"A": "<texto>", "B": "<texto>", "C": "<texto>", "D": "<texto>"},
+  "correct_answer": "<A|B|C|D>",
+  "justification": "<por que a correta está certa, com base na fonte>",
+  "source_excerpt_for_correct": "<citação LITERAL da fonte que sustenta a correta>",
+  "incorrect_options_rationale": {"A": "<por que A está correta/incorreta>", "B": "<...>", "C": "<...>", "D": "<...>"}
+},
+  "option_analysis": {
+    "A": {"supported_by_source": <true|false>, "could_be_correct": <true|false>, "reason": "<avaliação da alternativa A>"},
+    "B": {"supported_by_source": <true|false>, "could_be_correct": <true|false>, "reason": "<...>"},
+    "C": {"supported_by_source": <true|false>, "could_be_correct": <true|false>, "reason": "<...>"},
+    "D": {"supported_by_source": <true|false>, "could_be_correct": <true|false>, "reason": "<...>"}
+  },
+  "summary": "<1-2 frases>"
+}

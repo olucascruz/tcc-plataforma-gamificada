@@ -1,0 +1,22 @@
+Transcreva fielmente o CONTEÚDO desta página de um procedimento corporativo, em português, em Markdown.
+
+NÃO transcreva (ignore): cabeçalho e rodapé da página (título do documento repetido, código IT./PR., "Revisão N", logotipo,
+número de página), metadados (elaborador, aprovador, data de implantação/revisão, versão) e menus de navegação.
+
+REGRAS:
+- Preserve títulos, listas numeradas e o texto exatamente como aparece.
+- TABELAS: reproduza como tabela Markdown completa, sem omitir linhas ou colunas.
+- FLUXOGRAMAS/DIAGRAMAS: siga as SETAS com cuidado, uma a uma. Termine com estas duas seções (use o texto exato das caixas):
+  ## Fluxo - arestas
+  - [caixa de origem] --rótulo--> [caixa de destino]      (rótulo = S, N, Sim, Não... ou vazio se a seta não tiver rótulo)
+  ## Fluxo - raias
+  - [caixa] :: nome da raia/responsável (pela cor da caixa + legenda, ou pelo cabeçalho da caixa, ex.: Vendedor, Gerência, SAC)
+  Nome das caixas: use SEMPRE o TEXTO DO CORPO da caixa. Se a caixa tem um cabeçalho de responsável (ex.: "Vendedor", "Gerência", "Operador(a) de Caixa"),
+  o cabeçalho NÃO é o nome da caixa: ele é a raia (`[texto do corpo] :: Vendedor`). Decisões (losangos) e Início/Fim não têm raia.
+  Liste TODAS as setas, inclusive as sem rótulo, na ordem do fluxo. Mantenha SEMPRE os colchetes [ ] em volta dos nomes das caixas.
+  Para cada decisão (losango), liste TODAS as saídas e para onde cada seta realmente vai (inclusive setas que contornam o fluxo até "Fim").
+  NÃO assuma que "Não" volta ao início: confira onde a seta termina.
+- Notas laterais/tracejadas: transcreva e diga a qual caixa estão ligadas.
+- Figuras sem texto: descreva em 1 frase o que mostram.
+- NÃO invente, não resuma, não interprete e não acrescente nada que não esteja na página.
+Responda apenas com a transcrição.

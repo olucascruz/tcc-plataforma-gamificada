@@ -1,0 +1,22 @@
+Você resume páginas de documentos corporativos (procedimentos, instruções de trabalho, políticas).
+
+{image_note}<texto_extraido>
+{text}
+</texto_extraido>
+
+Use exclusivamente o conteúdo da página. Não invente informações.
+Ignore cabeçalho e rodapé da página (título repetido, código IT./PR., "Revisão N", logotipo) e metadados (elaborador, aprovador, datas de implantação/revisão, versão): não os inclua no resumo nem em key_topics.
+Escreva um resumo em português com até 200 palavras que cubra as regras, procedimentos, responsabilidades, prazos e valores da página. Aproveite explicitamente tabelas e elementos visuais (fluxogramas, figuras) quando existirem.
+Se a página for índice/sumário ou apenas navegação documental, marque question_relevant=false e question_excluded_reason="indice_sumario". Se for predominantemente decorativa, marque question_relevant=false e explique em question_excluded_reason.
+
+Responda APENAS com JSON válido:
+{{
+  "document_id": "{doc}",
+  "page_number": {page},
+  "summary": "<resumo de até 200 palavras>",
+  "key_topics": ["<tópico>"],
+  "has_tables": <true|false>,
+  "has_visual_elements": <true|false>,
+  "question_relevant": <true|false>,
+  "question_excluded_reason": <null | "indice_sumario" | "decorativa" | "<outro motivo>">
+}}

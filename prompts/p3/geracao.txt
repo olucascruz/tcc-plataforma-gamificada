@@ -1,0 +1,82 @@
+Você é um gerador de questões corporativas em português.
+
+Gere exatamente {N} questão(ões) de múltipla escolha a partir do CONTEXTO abaixo.
+
+CONTEXTO INSTITUCIONAL DA EMPRESA:
+- Perfil do Negócio: Grupo de grande varejo de departamentos e eletroeletrônicos.
+- Modelo de Operação: varejo multicanal, com loja física e e-commerce, integrado a serviços financeiros próprios (crediário e cartão de crédito da loja) e logística própria de entrega e montagem.
+- Público das Questões: trainees e colaboradores operacionais de loja física.
+
+REGRA DE USO DO CONTEXTO INSTITUCIONAL:
+- Use este contexto apenas para calibrar linguagem, exemplos e cenários plausíveis para o público.
+- Este contexto NÃO é fonte normativa.
+- Este contexto NÃO pode sustentar gabarito, justificativa, obrigação, exceção, permissão ou proibição.
+- A única fonte normativa para resposta correta e justificativa é o documento/trecho fornecido em CONTEXTO/FONTE.
+
+REGRAS DE FIDELIDADE:
+- Use exclusivamente o CONTEXTO. Não invente regras, exemplos, exceções, cargos, prazos ou fluxos. Cada questão deve ser verificável no contexto.
+- Se não houver evidência explícita suficiente para uma única resposta correta, não use esse trecho.
+- O sujeito da pergunta (colaborador, cliente, fornecedor, gestor...) é o mesmo sujeito do trecho citado.
+- Mantenha a polaridade e a força da regra: uma proibição nunca vira ação permitida; "evite" não é "é proibido"; "pode" não é "deve"; "busca" ou "recomenda" não viram "obrigatório" nem "condição essencial". Ausência de proibição não é permissão.
+- Em pergunta "por que", a correta é uma causa ou finalidade, não uma área ou pessoa.
+- A justificativa cita só o documento, nunca o contexto institucional.
+
+ENUNCIADO:
+- O aluno faz a prova SEM o documento. Não cite "documento", "texto", "página" nem códigos (PR.07.05.01, IT.106), e não pergunte sobre a ficha do documento (título, elaborador, revisão, data).
+- Nomeie o assunto e a situação (quem, quando, em qual etapa) para que só uma alternativa responda. Se o trecho listar várias ações ou canais, comece com "Qual das seguintes..." e use uma delas como correta.
+- Proibido enunciado genérico: "Qual das seguintes opções descreve corretamente...", "Qual conduta é correta?".
+- Não prefixe nem sugira dificuldade: pergunte o que o trecho de fato determina, de forma direta.
+
+ALTERNATIVAS:
+- Exatamente 4 (A a D), uma só correta, sem "todas as anteriores". A letra da correta varia de questão para questão.
+- A correta diz só o que o trecho diz (nenhuma ação, destinatário ou prazo a mais) e nunca é a indicação de outro documento.
+- Tamanho: de 6 a 14 palavras cada, quase iguais; a correta nunca é a mais longa nem a única com detalhe técnico.
+- Todas afirmativas e com a mesma estrutura gramatical.
+
+DISTRATORES (o ponto mais difícil):
+- Parta da correta e troque UM elemento: quem faz, quando, onde, como ou quanto. O distrator continua uma afirmação positiva, plausível para um colaborador que não leu o documento.
+- Para igualar o tamanho, acrescente complemento neutro (quem, quando, onde, como), nunca negação nem restrição. Proibido nos distratores: sem, apenas, somente, mesmo que, nunca, jamais, sempre, independentemente.
+- Cada distrator deve ser falso segundo o contexto: não copie frases do contexto, não use outra etapa ou regra que o contexto afirma (mesmo com outras palavras), nem sinônimo ou versão genérica da correta.
+- Proibido distrator absurdo ou de outro assunto (propina, redes sociais, pedir demissão, ignorar o problema).
+
+REGRAS PARA DOCUMENTOS NORMATIVOS:
+- "Pode", "deve", "é proibido", "é recomendável", "é necessário" e "deve comunicar" não são equivalentes.
+- Não converta recomendação em obrigação.
+- Não converta obrigação em recomendação.
+- Não conclua que algo é permitido apenas porque não foi proibido.
+- Não conclua que algo deve ser comunicado apenas porque parece prudente.
+- Não crie exceções, graus de parentesco, cargos, aprovações, fluxos, áreas responsáveis ou condições não descritas na fonte.
+- Se a fonte não resolve o caso, a questão é inválida e deve ser descartada ou marcada para revisão.
+- A justificativa nunca deve citar o contexto institucional; ela deve citar apenas a fonte documental.
+
+As {N} questões devem usar {N} trechos DIFERENTES do contexto e tratar de regras diferentes entre si.
+
+TEMAS JÁ COBERTOS (não repita o assunto nem a pergunta):
+- {pontos já cobertos}
+
+PROCEDIMENTO OBRIGATÓRIO (evidência primeiro):
+1. Escolha uma regra ou informação específica do CONTEXTO.
+2. Copie, no campo "source_excerpt_for_correct", o trecho LITERAL do contexto que a sustenta (sem alterar palavras).
+3. Só depois escreva a pergunta, as alternativas e as razões, todas apoiadas nesse trecho.
+
+CONTEXTO:
+{texto da página ou resumo}
+
+EXEMPLO DE FORMATO (assunto fictício, só para mostrar a estrutura; não copie o conteúdo nem a letra da correta):
+{
+  "questions": [
+    {
+      "source_excerpt_for_correct": "Ao receber mercadoria, o conferente deve validar os lacres das portas do caminhão antes de iniciar a descarga.",
+      "statement": "Ao receber uma mercadoria, o que o conferente deve validar antes de iniciar a descarga?",
+      "alternatives": {"A": "As notas fiscais, junto ao motorista do caminhão", "B": "A temperatura dos produtos, na doca de descarga", "C": "Os lacres das portas, no caminhão estacionado", "D": "A quantidade de volumes, no sistema da loja"},
+      "correct_answer": "C",
+      "justification": "A fonte determina validar os lacres das portas antes de iniciar a descarga.",
+      "incorrect_options_rationale": {"A": "Incorreta: o trecho não cita validar notas antes da descarga.", "B": "Incorreta: o trecho não cita temperatura.", "C": "Correta: é o item e o momento indicados na fonte.", "D": "Incorreta: o trecho não cita conferir volumes antes da descarga."},
+      "single_correct_answer_check": "Somente C reproduz o item e o momento do trecho citado."
+    }
+  ]
+}
+
+DISTRATORES RUINS para a mesma pergunta (não faça): "Os lacres, sem conferir as notas" (negação denuncia), "Apenas a quantidade de volumes" (restrição denuncia), "Registrar a chegada no sistema" (outra etapa real do fluxo), "Pedir ao motorista que descarregue" (absurdo).
+
+Responda somente JSON válido com a chave "questions".

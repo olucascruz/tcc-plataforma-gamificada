@@ -1,0 +1,27 @@
+Corrija a questão abaixo. Ela foi reprovada na validação pelos problemas listados.
+
+PROBLEMAS A CORRIGIR:
+- O source_excerpt_for_correct não está no TEXTO FONTE DA PÁGINA (provavelmente foi copiado do RESUMO). Copie o trecho literalmente do TEXTO FONTE DA PÁGINA, palavra por palavra, e ajuste a alternativa correta a ele.
+
+Mantenha o mesmo trecho-fonte e o mesmo assunto. Altere somente o necessário. As quatro alternativas devem ter quase o mesmo tamanho (6 a 14 palavras), a correta não pode ser a mais longa, e o enunciado não pode citar documento, página ou código.
+
+QUESTÃO ATUAL:
+{
+  "source_excerpt_for_correct": "{...}",
+  "statement": "{enunciado}",
+  "alternatives": {
+    "A": "{...}",
+    "B": "{...}",
+    "C": "{...}",
+    "D": "{...}"
+  },
+  "correct_answer": "{A|B|C|D}",
+  "justification": "{...}",
+  "incorrect_options_rationale": {},
+  "single_correct_answer_check": "{...}"
+}
+
+CONTEXTO:
+{texto da página ou resumo}
+
+Responda somente JSON válido com a chave "question" contendo os mesmos campos da questão atual.

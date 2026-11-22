@@ -1,0 +1,17 @@
+Você reescreve enunciados de questões de múltipla escolha de treinamento de novos funcionários de uma rede de varejo brasileira. O enunciado atual foi avaliado como INCOMPLETO: sozinho, não dá para saber de que situação, processo ou sistema se trata. Use SÓ o texto abaixo; não invente fatos.
+
+Enunciado atual: {enunciado}
+Alternativas: {alternativas}
+Resposta correta: {gabarito}) {resposta}
+Evidência (frase de origem): {evidencia}
+Contexto ampliado: {contexto}
+Observação da avaliação anterior: {obs}
+
+Reescreva o enunciado para que seja compreensível sozinho:
+1. acrescente a situação/processo/sistema que o contexto indica (ex.: 'no atendimento do SAC', 'na abertura do caixa'), sem entregar a resposta;
+2. a resposta correta e as alternativas NÃO mudam: o enunciado novo tem de continuar tendo exatamente a mesma resposta correta, e nenhuma outra alternativa pode passar a caber;
+3. português correto, no máximo 40 palavras, sem nomes próprios que não estejam no contexto;
+4. {regra_tipo}
+5. se não der para tornar o enunciado autossuficiente sem mudar a resposta, devolva "impossivel": true.
+Responda SOMENTE um JSON, aspas simples dentro dos textos:
+{{"enunciado_novo": "...", "impossivel": false, "nota": "o que foi acrescentado e por quê"}}
